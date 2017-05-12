@@ -20,7 +20,7 @@ x('http://txly2.net/ir', 'tbody tr', [{
             var lastIndex = audio.downUrl.lastIndexOf('/');
             var fileName = sub.substring(lastIndex + 1);
             audio.downUrl = sub;
-            audio.time = audio.time.substring(audio.time.indexOf('-') + 1);
+            audio.time = audio.time.substring(audio.time.lastIndexOf('-') + 1);
             download(audio.downUrl).then(data => {
                 fs.writeFileSync('../ir/' + fileName, data);
             });
