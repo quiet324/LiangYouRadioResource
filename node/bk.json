@@ -1,0 +1,42 @@
+[
+	{
+		"time": "20170416",
+		"title": "《燃烧吧，大学魂》（1）",
+		"downUrl": "http://txly2.net/ly/audio/2017/bk/bk170416.mp3",
+		"duration": 560,
+		"size": "4.5M",
+		"artistId": 4,
+		"artistName": "听书‧想飞",
+		"id": 4000001
+	},
+	{
+		"time": "20170423",
+		"title": "《燃烧吧，大学魂》（2）",
+		"downUrl": "http://txly2.net/ly/audio/2017/bk/bk170423.mp3",
+		"duration": 560,
+		"size": "4.5M",
+		"artistId": 4,
+		"artistName": "听书‧想飞",
+		"id": 4000002
+	},
+	{
+		"time": "20170430",
+		"title": "《与岁月和好》（1）",
+		"downUrl": "http://txly2.net/ly/audio/2017/bk/bk170430.mp3",
+		"duration": 560,
+		"size": "4.5M",
+		"artistId": 4,
+		"artistName": "听书‧想飞",
+		"id": 4000003
+	},
+	{
+		"time": "20170507",
+		"title": "《与岁月和好》（2）",
+		"downUrl": "http://txly2.net/ly/audio/2017/bk/bk170507.mp3",
+		"duration": 560,
+		"size": "4.5M",
+		"artistId": 4,
+		"artistName": "听书‧想飞",
+		"id": 4000004
+	}
+]
