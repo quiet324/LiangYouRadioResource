@@ -25,7 +25,7 @@ x('http://txly2.net/aw', 'tbody tr', [{
             //     fs.writeFileSync('../aw/' + fileName, data);
             // });
             audio.duration = 3560;
-            audio.size = "14.1M";
+            audio.size = "28.5M";
             audio.artistId = 31;
             audio.artistName = "空中崇拜";
             audio.id = 31000001 + arrayIndex;
