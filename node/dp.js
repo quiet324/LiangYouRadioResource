@@ -3,13 +3,13 @@ const x = Xray();
 const fs = require('fs');
 const download = require('download');
 
-x('http://txly2.net/dp', 'tbody tr', [{
+x('http://txly2.net/dp?start=240', 'tbody tr', [{
         "time": '.ss-title a',
         "title": '.ss-title p',
         "downUrl": '.ss-dl a@href'
     }])
-    .paginate('.pagenav@href')
-    .limit(35)
+    .paginate('.pagenav + .pagenav + .pagenav @href')
+    .limit(2)
     // .write('results.json')
     (function(err, results) {
         results = results.reverse();
