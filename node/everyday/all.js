@@ -48,7 +48,7 @@ results.forEach(function(artist) {
                         audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
                         audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
 
-                        fs.writeFileSync("./" + artist.shortName + ".json", JSON.stringify(audio, null, '\t'));
+                        fs.writeFileSync("./" + artist.shortName + audio.time + ".json", JSON.stringify(audio, null, '\t'));
 
                         if (!shell.which('git')) {
                             shell.echo('Sorry, this script requires git');
