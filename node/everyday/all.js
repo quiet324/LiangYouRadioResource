@@ -32,7 +32,7 @@ results.forEach(function(artist) {
                     if (!fs.existsSync(file)) { //
                         // Do something
                         download(audio.downUrl).then(data => {
-                        fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
+                            fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
                             var commitTag = artist.shortName + audio.time
 
