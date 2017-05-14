@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dateformat": "^2.0.0",
     "download": "^6.0.0",
     "github": "^9.2.0",
     "github-api": "^3.0.0",

@@ -49,7 +49,7 @@ x('http://txly2.net/aw', 'tbody tr', {
                 shell.exit(1);
             }
 
-            if (shell.exec('git push').code !== 0) {
+            if (shell.exec('git push --tags').code !== 0) {
                 shell.echo('Error: Git push failed');
                 shell.exit(1);
             }
