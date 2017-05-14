@@ -52,30 +52,30 @@ results.forEach(function(artist) {
 
                         fs.writeFileSync("./" + artist.shortName + audio.time + ".json", JSON.stringify(audio, null, '\t'));
 
-                        if (!shell.which('git')) {
-                            shell.echo('Sorry, this script requires git');
-                            shell.exit(1);
-                        }
+                        // if (!shell.which('git')) {
+                        //     shell.echo('Sorry, this script requires git');
+                        //     shell.exit(1);
+                        // }
 
-                        if (shell.exec('git add ../../.').code !== 0) {
-                            shell.echo('Error: Git add failed');
-                            shell.exit(1);
-                        }
+                        // if (shell.exec('git add ../../.').code !== 0) {
+                        //     shell.echo('Error: Git add failed');
+                        //     shell.exit(1);
+                        // }
 
-                        if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
-                            shell.echo('Error: Git commit failed');
-                            shell.exit(1);
-                        }
+                        // if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
+                        //     shell.echo('Error: Git commit failed');
+                        //     shell.exit(1);
+                        // }
 
-                        if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
-                            shell.echo('Error: Git tag failed');
-                            shell.exit(1);
-                        }
+                        // if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
+                        //     shell.echo('Error: Git tag failed');
+                        //     shell.exit(1);
+                        // }
 
-                        if (shell.exec('git push --tags').code !== 0) {
-                            shell.echo('Error: Git push failed');
-                            shell.exit(1);
-                        }
+                        // if (shell.exec('git push --tags').code !== 0) {
+                        //     shell.echo('Error: Git push failed');
+                        //     shell.exit(1);
+                        // }
 
 
                         
