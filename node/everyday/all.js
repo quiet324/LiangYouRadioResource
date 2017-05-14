@@ -31,15 +31,17 @@ results.forEach(function(artist) {
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
 
-                    if (!fs.existsSync(file)) { //
+                    if (true) { //
                         // Do something
 
-                        var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
-                        // var data = downloadFileSync(audio.downUrl)
+                        // var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
+                        // // var data = downloadFileSync(audio.downUrl)
 
-                        fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
+                        // fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
-                        var commitTag = artist.shortName + audio.time
+                        // var commitTag = artist.shortName + audio.time;
+
+                        var commitTag = artist.shortName + audio.time + "2";
 
                         audio.duration = artist.duration;
                         audio.size = artist.size;
