@@ -28,7 +28,7 @@ results.forEach(function(artist) {
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
 
-                    if (!fs.existsSync(file)) {
+                    if (true) { //!fs.existsSync(file)
                         // Do something
                         download(audio.downUrl).then(data => {
                         fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
@@ -40,7 +40,7 @@ results.forEach(function(artist) {
                             audio.artistId = artist.id;
                             audio.artistName = artist.name;
                             audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
-                            audio.id = 1000000 + parseInt(audio.time.substring(2), 10);
+                            audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
 
                             fs.writeFileSync("./" + artist.shortName + ".json", JSON.stringify(audio, null, '\t'));
 
