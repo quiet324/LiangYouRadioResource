@@ -23,13 +23,13 @@ results.forEach(function(artist) {
                 var fileName = sub.substring(lastIndex + 1);
                 audio.downUrl = sub;
                 audio.time = audio.time.substring(audio.time.lastIndexOf('-') + 1);
-                console.log(artist)
-                console.log(audio)
+                console.log(artist.name)
+                console.log(audio.time)
                 var today = dateFormat(new Date(), "yyyymmdd");
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
 
-                    if (true) { //!fs.existsSync(file)
+                    if (!fs.existsSync(file)) { //
                         // Do something
                         download(audio.downUrl).then(data => {
                         fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
