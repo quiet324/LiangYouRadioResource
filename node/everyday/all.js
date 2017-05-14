@@ -33,8 +33,10 @@ results.forEach(function(artist) {
 
                     if (!fs.existsSync(file)) { //
                         // Do something
-                        var data = downloadFileSync(audio.downUrl)
-                        
+
+                        var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
+                        // var data = downloadFileSync(audio.downUrl)
+
                         fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
                         var commitTag = artist.shortName + audio.time
