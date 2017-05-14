@@ -31,7 +31,7 @@ results.forEach(function(artist) {
 
 
                     var date = new Date();
-                    date.setDate(date.getDate() - 3);
+                    date.setDate(date.getDate() - 4);
                     var yestoday = dateFormat(date, "yyyymmdd");
                     if (audio.time === yestoday) {
                         var file = '../../' + artist.shortName + '/' + fileName;
