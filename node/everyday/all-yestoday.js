@@ -17,8 +17,12 @@ results.forEach(function(artist) {
         }])
         // .write('results.json')
         (function(err, audios) {
-            audio = audios[1];
             if (err === null) {
+                if (audios.length > 2) {
+                    audio = audios[1];
+
+                }
+
                 var index = audio.downUrl.indexOf('?');
                 var sub = audio.downUrl.substring(0, index);
                 var lastIndex = audio.downUrl.lastIndexOf('/');
