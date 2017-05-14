@@ -27,7 +27,7 @@ x('http://txly2.net/aw', 'tbody tr', {
         audio.artistName = "空中崇拜";
         audio.id = 31000000 + parseInt(audio.time.substring(2), 10);
 
-        fs.writeFile("./aw.json", JSON.stringify(audio, null, '\t'));
+        fs.writeFileSync("./aw.json", JSON.stringify(audio, null, '\t'));
 
 
         if (!shell.which('git')) {
