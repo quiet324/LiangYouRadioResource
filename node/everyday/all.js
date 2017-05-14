@@ -26,8 +26,11 @@ results.forEach(function(artist) {
 
                 var today = dateFormat(new Date(), "yyyymmdd");
                 if (audio.time === today) {
+                    var file = '../../' + artist.shortName + '/' + fileName;
 
-                    download(audio.downUrl).then(data => {
+                    if (!fs.existsSync(file)) {
+                        // Do something
+                        download(audio.downUrl).then(data => {
                         fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
                             var commitTag = artist.shortName + audio.time
@@ -68,6 +71,10 @@ results.forEach(function(artist) {
 
 
                         });
+                    } else {
+                        console.log(file + " exit");
+                    }
+                    
 
                 }
 
