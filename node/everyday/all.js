@@ -31,7 +31,7 @@ results.forEach(function(artist) {
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
 
-                    if (true) { //!fs.existsSync(file)
+                    if (!fs.existsSync(file)) { //
                         // Do something
 
                         var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
