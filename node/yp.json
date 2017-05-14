@@ -1,0 +1,51 @@
+[
+	{
+		"time": "20170416",
+		"title": "尽力而为",
+		"downUrl": "http://txly2.net/ly/audio/2017/yp/yp170416.mp3",
+		"duration": 1760,
+		"size": "14.1M",
+		"artistId": 39,
+		"artistName": "善牧良言",
+		"id": 39000001
+	},
+	{
+		"time": "20170423",
+		"title": "孝順",
+		"downUrl": "http://txly2.net/ly/audio/2017/yp/yp170423.mp3",
+		"duration": 1760,
+		"size": "14.1M",
+		"artistId": 39,
+		"artistName": "善牧良言",
+		"id": 39000002
+	},
+	{
+		"time": "20170430",
+		"downUrl": "http://txly2.net/ly/audio/2017/yp/yp170430.mp3",
+		"duration": 1760,
+		"size": "14.1M",
+		"artistId": 39,
+		"artistName": "善牧良言",
+		"id": 39000003
+	},
+	{
+		"time": "20170507",
+		"title": "知足（下）",
+		"downUrl": "http://txly2.net/ly/audio/2017/yp/yp170507.mp3",
+		"duration": 1760,
+		"size": "14.1M",
+		"artistId": 39,
+		"artistName": "善牧良言",
+		"id": 39000004
+	},
+	{
+		"time": "20170514",
+		"title": "智慧（上）",
+		"downUrl": "http://txly2.net/ly/audio/2017/yp/yp170514.mp3",
+		"duration": 1760,
+		"size": "14.1M",
+		"artistId": 39,
+		"artistName": "善牧良言",
+		"id": 39000005
+	}
+]
