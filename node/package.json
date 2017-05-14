@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.4.0",
     "dateformat": "^2.0.0",
     "download": "^6.0.0",
+    "download-file-sync": "^1.0.4",
     "github": "^9.2.0",
     "github-api": "^3.0.0",
     "octokat": "^0.8.0",

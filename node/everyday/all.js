@@ -4,6 +4,8 @@ const fs = require('fs');
 const download = require('download');
 var shell = require('shelljs');
 var dateFormat = require('dateformat');
+var async = require('async');
+var downloadFileSync = require('download-file-sync');
 
 var results = JSON.parse(fs.readFileSync('../../artist.json', 'utf8'));
 results.forEach(function(artist) {
@@ -31,47 +33,48 @@ results.forEach(function(artist) {
 
                     if (!fs.existsSync(file)) { //
                         // Do something
-                        download(audio.downUrl).then(data => {
-                            fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
+                        var data = downloadFileSync(audio.downUrl)
+                        
+                        fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
-                            var commitTag = artist.shortName + audio.time
+                        var commitTag = artist.shortName + audio.time
 
-                            audio.duration = artist.duration;
-                            audio.size = artist.size;
-                            audio.artistId = artist.id;
-                            audio.artistName = artist.name;
-                            audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
-                            audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
+                        audio.duration = artist.duration;
+                        audio.size = artist.size;
+                        audio.artistId = artist.id;
+                        audio.artistName = artist.name;
+                        audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
+                        audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
 
-                            fs.writeFileSync("./" + artist.shortName + ".json", JSON.stringify(audio, null, '\t'));
+                        fs.writeFileSync("./" + artist.shortName + ".json", JSON.stringify(audio, null, '\t'));
 
-                            if (!shell.which('git')) {
-                                shell.echo('Sorry, this script requires git');
-                                shell.exit(1);
-                            }
+                        if (!shell.which('git')) {
+                            shell.echo('Sorry, this script requires git');
+                            shell.exit(1);
+                        }
 
-                            if (shell.exec('git add ../../.').code !== 0) {
-                                shell.echo('Error: Git add failed');
-                                shell.exit(1);
-                            }
+                        if (shell.exec('git add ../../.').code !== 0) {
+                            shell.echo('Error: Git add failed');
+                            shell.exit(1);
+                        }
 
-                            if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
-                                shell.echo('Error: Git commit failed');
-                                shell.exit(1);
-                            }
+                        if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
+                            shell.echo('Error: Git commit failed');
+                            shell.exit(1);
+                        }
 
-                            if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
-                                shell.echo('Error: Git tag failed');
-                                shell.exit(1);
-                            }
+                        if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
+                            shell.echo('Error: Git tag failed');
+                            shell.exit(1);
+                        }
 
-                            if (shell.exec('git push --tags').code !== 0) {
-                                shell.echo('Error: Git push failed');
-                                shell.exit(1);
-                            }
+                        if (shell.exec('git push --tags').code !== 0) {
+                            shell.echo('Error: Git push failed');
+                            shell.exit(1);
+                        }
 
 
-                        });
+                        
                     } else {
                         console.log(file + " exit");
                     }
