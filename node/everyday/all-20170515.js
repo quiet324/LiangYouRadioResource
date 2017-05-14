@@ -41,7 +41,7 @@ results.forEach(function(artist) {
 
                         // var commitTag = artist.shortName + audio.time;
 
-                        var commitTag = artist.shortName + audio.time + "2";
+                        var commitTag = artist.shortName + audio.time;
 
                         audio.duration = artist.duration;
                         audio.size = artist.size;
