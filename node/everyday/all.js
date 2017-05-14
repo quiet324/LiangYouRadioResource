@@ -31,17 +31,15 @@ results.forEach(function(artist) {
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
 
-                    if (true) { //
+                    if (!fs.existsSync(file)) { //
                         // Do something
 
-                        // var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
-                        // // var data = downloadFileSync(audio.downUrl)
+                        var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
+                        // var data = downloadFileSync(audio.downUrl)
 
-                        // fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
+                        fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
 
-                        // var commitTag = artist.shortName + audio.time;
-
-                        var commitTag = artist.shortName + audio.time + "2";
+                        var commitTag = artist.shortName + audio.time
 
                         audio.duration = artist.duration;
                         audio.size = artist.size;
@@ -52,30 +50,30 @@ results.forEach(function(artist) {
 
                         fs.writeFileSync("./" + artist.shortName + audio.time + ".json", JSON.stringify(audio, null, '\t'));
 
-                        // if (!shell.which('git')) {
-                        //     shell.echo('Sorry, this script requires git');
-                        //     shell.exit(1);
-                        // }
+                        if (!shell.which('git')) {
+                            shell.echo('Sorry, this script requires git');
+                            shell.exit(1);
+                        }
 
-                        // if (shell.exec('git add ../../.').code !== 0) {
-                        //     shell.echo('Error: Git add failed');
-                        //     shell.exit(1);
-                        // }
+                        if (shell.exec('git add ../../.').code !== 0) {
+                            shell.echo('Error: Git add failed');
+                            shell.exit(1);
+                        }
 
-                        // if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
-                        //     shell.echo('Error: Git commit failed');
-                        //     shell.exit(1);
-                        // }
+                        if (shell.exec('git commit -m "Auto-commit"').code !== 0) {
+                            shell.echo('Error: Git commit failed');
+                            shell.exit(1);
+                        }
 
-                        // if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
-                        //     shell.echo('Error: Git tag failed');
-                        //     shell.exit(1);
-                        // }
+                        if (shell.exec('git tag ' + artist.shortName + audio.time).code !== 0) {
+                            shell.echo('Error: Git tag failed');
+                            shell.exit(1);
+                        }
 
-                        // if (shell.exec('git push --tags').code !== 0) {
-                        //     shell.echo('Error: Git push failed');
-                        //     shell.exit(1);
-                        // }
+                        if (shell.exec('git push --tags').code !== 0) {
+                            shell.echo('Error: Git push failed');
+                            shell.exit(1);
+                        }
 
 
                         
