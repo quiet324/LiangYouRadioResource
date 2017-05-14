@@ -23,7 +23,8 @@ results.forEach(function(artist) {
                 var fileName = sub.substring(lastIndex + 1);
                 audio.downUrl = sub;
                 audio.time = audio.time.substring(audio.time.lastIndexOf('-') + 1);
-
+                console.log(artist)
+                console.log(audio)
                 var today = dateFormat(new Date(), "yyyymmdd");
                 if (audio.time === today) {
                     var file = '../../' + artist.shortName + '/' + fileName;
