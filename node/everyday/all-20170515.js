@@ -48,7 +48,7 @@ results.forEach(function(artist) {
                         audio.artistId = artist.id;
                         audio.artistName = artist.name;
                         audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
-                        audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
+                        audio.id = artist.id * 1000000 + parseInt(audio.time.substring(2), 10);
 
                         fs.writeFileSync("./" + artist.shortName + audio.time + ".json", JSON.stringify(audio, null, '\t'));
 
@@ -78,11 +78,13 @@ results.forEach(function(artist) {
                         // }
 
 
-                        
-                    } else {
-                        console.log(file + " exit");
+
                     }
-                    
+
+                    //  else {
+                    //     console.log(file + " exit");
+                    // }
+
 
                 }
 
