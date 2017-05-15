@@ -34,7 +34,9 @@ results.forEach(function(artist) {
                     if (!fs.existsSync(file)) { //
                         // Do something
 
-                        var data =  require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
+                        console.log("downloading..." + file);
+
+                        var data = require('child_process').execFileSync('curl', ['--silent', '-L', audio.downUrl]);
                         // var data = downloadFileSync(audio.downUrl)
 
                         fs.writeFileSync('../../' + artist.shortName + '/' + fileName, data);
@@ -46,7 +48,7 @@ results.forEach(function(artist) {
                         audio.artistId = artist.id;
                         audio.artistName = artist.name;
                         audio.path = "https://rawcdn.githack.com/quiet324/LiangYouRadioResource/" + commitTag + "/" + artist.shortName + "/" + fileName;
-                        audio.id = artist.id  * 1000000 + parseInt(audio.time.substring(2), 10);
+                        audio.id = artist.id * 1000000 + parseInt(audio.time.substring(2), 10);
 
                         fs.writeFileSync("./" + artist.shortName + audio.time + ".json", JSON.stringify(audio, null, '\t'));
 
@@ -76,11 +78,11 @@ results.forEach(function(artist) {
                         }
 
 
-                        
+
                     } else {
                         console.log(file + " exit");
                     }
-                    
+
 
                 }
 
